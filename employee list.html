@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Employee List</title>
+</head>
+<body class="bg-gray-100 p-6">
+    <h1 class="text-3xl font-semibold mb-4">Employee List</h1>
+    <table class="min-w-full bg-white border border-gray-300">
+        <thead>
+            <tr class="bg-gray-200">
+                <th class="py-2 border">Name</th>
+                <th class="py-2 border">Job Title</th>
+                <th class="py-2 border">Department</th>
+                <th class="py-2 border">Email</th>
+                <th class="py-2 border">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="hover:bg-gray-100">
+                <td class="py-2 border">Alice Johnson</td>
+                <td class="py-2 border">Software Engineer</td>
+                <td class="py-2 border">Development</td>
+                <td class="py-2 border">alice@example.com</td>
+                <td class="py-2 border">
+                    <button class="bg-blue-500 text-white px-4 py-1 rounded" onclick="openModal('Alice Johnson', 'Software Engineer', 'Development', 'alice@example.com', 'Alice has over 5 years of experience in software development.')">Info</button>
+                </td>
+            </tr>
+            <tr class="hover:bg-gray-100">
+                <td class="py-2 border">Bob Smith</td>
+                <td class="py-2 border">Product Manager</td>
+                <td class="py-2 border">Product</td>
+                <td class="py-2 border">bob@example.com</td>
+                <td class="py-2 border">
+                    <button class="bg-blue-500 text-white px-4 py-1 rounded" onclick="openModal('Bob Smith', 'Product Manager', 'Product', 'bob@example.com', 'Bob is an expert in managing product lifecycles.')">Info</button>
+                </td>
+            </tr>
+            <tr class="hover:bg-gray-100">
+                <td class="py-2 border">Carol Taylor</td>
+                <td class="py-2 border">UX Designer</td>
+                <td class="py-2 border">Design</td>
+                <td class="py-2 border">carol@example.com</td>
+                <td class="py-2 border">
+                    <button class="bg-blue-500 text-white px-4 py-1 rounded" onclick="openModal('Carol Taylor', 'UX Designer', 'Design', 'carol@example.com', 'Carol specializes in user-centered design principles.')">Info</button>
+                </td>
+            </tr>
+            <tr class="hover:bg-gray-100">
+                <td class="py-2 border">David Brown</td>
+                <td class="py-2 border">Data Analyst</td>
+                <td class="py-2 border">Analytics</td>
+                <td class="py-2 border">david@example.com</td>
+                <td class="py-2 border">
+                    <button class="bg-blue-500 text-white px-4 py-1 rounded" onclick="openModal('David Brown', 'Data Analyst', 'Analytics', 'david@example.com', 'David excels in data visualization and interpretation.')">Info</button>
+                </td>
+            </tr>
+            <tr class="hover:bg-gray-100">
+                <td class="py-2 border">Eve White</td>
+                <td class="py-2 border">HR Manager</td>
+                <td class="py-2 border">HR</td>
+                <td class="py-2 border">eve@example.com</td>
+                <td class="py-2 border">
+                    <button class="bg-blue-500 text-white px-4 py-1 rounded" onclick="openModal('Eve White', 'HR Manager', 'HR', 'eve@example.com', 'Eve has a strong background in employee relations.')">Info</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <!-- Modal -->
+    <div id="modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden items-center justify-center">
+        <div class="bg-white p-6 rounded-lg">
+            <h2 id="modalTitle" class="text-xl font-semibold"></h2>
+            <p id="modalContent" class="mt-2"></p>
+            <button class="mt-4 bg-red-500 text-white px-4 py-2 rounded" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+
+    <script>
+        function openModal(name, jobTitle, department, email, details) {
+            document.getElementById('modalTitle').innerText = `${name} - ${jobTitle}`;
+            document.getElementById('modalContent').innerText = `Department: ${department}\nEmail: ${email}\n\nDetails: ${details}`;
+            document.getElementById('modal').classList.remove('hidden');
+        }
+
+
+        function closeModal() {
+            document.getElementById('modal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
+
